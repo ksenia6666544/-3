@@ -14,8 +14,7 @@ def calculate_frequency(letter_count):
     frequency = {}
 
     for letter, count in letter_count.items():
-        frequency[letter] = round(count / total_letters, 2)
-        # 0.0 не считается верным, как получить 0.00 не понимаю
+     frequency[letter] = count / total_letters
 
     return frequency
 
@@ -59,8 +58,6 @@ letter_count = count_letters(main_str)
 
 frequency = calculate_frequency(letter_count)
 
+# Применяем форматирование, чтобы вывести две цифры после запятой
 for letter, freq in frequency.items():
-    if freq == 0.0:
-        print(f"{letter}: {freq}0")
-    else:
-        print(f"{letter}: {freq}")
+    print(f"{letter}: {freq:.2f}")
